@@ -261,7 +261,8 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
   /* USER CODE BEGIN 6 */
   USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &Buf[0]);
   USBD_CDC_ReceivePacket(&hUsbDeviceFS);
-  usb_parcel_mode = 1;
+  //usb_parcel_mode = 1;
+	HAL_GPIO_TogglePin(PC13_LED_GPIO_Port, PC13_LED_Pin);
   memcpy((USB_RX_MASS + usb_parcel_counter), Buf, *Len);
 
   if(usb_parcel_counter == 1)
@@ -273,7 +274,7 @@ static int8_t CDC_Receive_FS(uint8_t* Buf, uint32_t *Len)
 	  len.cstd[0] = *Buf;
   }
 
-	CDC_Transmit_FS(USB_RX_MASS, 2);
+	//CDC_Transmit_FS(USB_RX_MASS, 2);
   usb_parcel_counter++;
   return (USBD_OK);
   /* USER CODE END 6 */

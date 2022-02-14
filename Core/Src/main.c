@@ -202,15 +202,18 @@ void usb_irq_parser(void)
 	{
 		case	ECHO:
 			CDC_Transmit_FS(USB_RX_MASS, usb_len.istd);
+			
 			break;
 		case	BO_CTRL:
 			if(USB_RX_MASS[4] == 0)
 			{
 				HAL_GPIO_WritePin(UART_TX_GPIO_Port, UART_TX_Pin, GPIO_PIN_RESET);
+				//HAL_GPIO_WritePin(PC13_LED_GPIO_Port, PC13_LED_Pin, GPIO_PIN_RESET);
 			}
-			else if(USB_RX_MASS[4] == 1)
+			else if(USB_RX_MASS[4] == 2)
 			{
 				HAL_GPIO_WritePin(UART_TX_GPIO_Port, UART_TX_Pin, GPIO_PIN_SET);
+				//HAL_GPIO_WritePin(PC13_LED_GPIO_Port, PC13_LED_Pin, GPIO_PIN_SET);
 			}
 			else
 			{

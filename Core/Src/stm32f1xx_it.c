@@ -209,6 +209,7 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
   /* USER CODE END USB_LP_CAN1_RX0_IRQn 0 */
   HAL_PCD_IRQHandler(&hpcd_USB_FS);
   /* USER CODE BEGIN USB_LP_CAN1_RX0_IRQn 1 */
+//usb_irq_parser();
 	if(usb_parcel_counter == len.istd)
 	{
 		if(USB_RX_MASS[0] == SYNCHRO)
@@ -223,8 +224,8 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
 		}
 		else
 		{
-			memcpy(USB_TX_MASS, "No message", 10);
-			CDC_Transmit_FS(USB_RX_MASS, 10);
+			//memcpy(USB_TX_MASS, "No message", 10);
+			//CDC_Transmit_FS(USB_RX_MASS, 10);
 		}
 	}
   /* USER CODE END USB_LP_CAN1_RX0_IRQn 1 */

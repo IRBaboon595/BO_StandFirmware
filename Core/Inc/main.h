@@ -112,7 +112,7 @@ extern uint8_t xor_handler(uint8_t *mass);
 
 //FUNCTIONS
 #define ECHO										0x00
-#define BO_CTRL								0x01
+#define BO_CTRL									0x01
 #define	MAPS_DATA								0x02
 #define PE_P_S									0x03
 #define	PE_DATA									0x04
