@@ -76,6 +76,8 @@ extern float							pe_phase;
 
 extern double 						maps_steps[6];
 extern double 						pe_steps[8];
+
+extern int 								mode;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -100,6 +102,8 @@ extern uint8_t xor_handler(uint8_t *mass);
 /* Private defines -----------------------------------------------------------*/
 #define PC13_LED_Pin GPIO_PIN_13
 #define PC13_LED_GPIO_Port GPIOC
+#define CTRL_Trigger_Pin GPIO_PIN_0
+#define CTRL_Trigger_GPIO_Port GPIOB
 #define UART_TX_Pin GPIO_PIN_9
 #define UART_TX_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */

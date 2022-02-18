@@ -21,8 +21,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "stm32f1xx_it.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "usbd_cdc_if.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -57,6 +59,7 @@
 
 /* External variables --------------------------------------------------------*/
 extern PCD_HandleTypeDef hpcd_USB_FS;
+extern UART_HandleTypeDef huart2;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -209,8 +212,9 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
   /* USER CODE END USB_LP_CAN1_RX0_IRQn 0 */
   HAL_PCD_IRQHandler(&hpcd_USB_FS);
   /* USER CODE BEGIN USB_LP_CAN1_RX0_IRQn 1 */
-//usb_irq_parser();
-	if(usb_parcel_counter == len.istd)
+	//hUsbDeviceFS.pClassData
+	//memcpy(USB_RX_MASS, UserRxBufferFS, 6); 
+	if(usb_parcel_counter >= 6)
 	{
 		if(USB_RX_MASS[0] == SYNCHRO)
 		{
@@ -219,16 +223,44 @@ void USB_LP_CAN1_RX0_IRQHandler(void)
 				if(xor_handler(USB_RX_MASS) == 0)
 				{
 					usb_irq_parser();
+					memset(USB_RX_MASS, 0, 1000);
 				}
+				else
+				{
+					memset(USB_RX_MASS, 0, 1000);
+				}
+			}
+			else
+			{
+				memset(USB_RX_MASS, 0, 1000);
 			}
 		}
 		else
 		{
+			memset(USB_RX_MASS, 0, 1000);
 			//memcpy(USB_TX_MASS, "No message", 10);
 			//CDC_Transmit_FS(USB_RX_MASS, 10);
 		}
 	}
+
+	//mode = 1;
+	
+	
   /* USER CODE END USB_LP_CAN1_RX0_IRQn 1 */
+}
+
+/**
+  * @brief This function handles USART2 global interrupt.
+  */
+void USART2_IRQHandler(void)
+{
+  /* USER CODE BEGIN USART2_IRQn 0 */
+
+  /* USER CODE END USART2_IRQn 0 */
+  HAL_UART_IRQHandler(&huart2);
+  /* USER CODE BEGIN USART2_IRQn 1 */
+
+  /* USER CODE END USART2_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */

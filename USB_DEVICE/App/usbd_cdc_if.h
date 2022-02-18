@@ -77,7 +77,7 @@
   */
 
 /* USER CODE BEGIN EXPORTED_MACRO */
-
+extern uint8_t UserRxBufferFS[APP_RX_DATA_SIZE];
 /* USER CODE END EXPORTED_MACRO */
 
 /**

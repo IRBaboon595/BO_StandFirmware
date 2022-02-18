@@ -24,6 +24,7 @@ bo_standfirmware\stm32f1xx_hal_gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32
 bo_standfirmware\stm32f1xx_hal_gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h
 bo_standfirmware\stm32f1xx_hal_gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h
 bo_standfirmware\stm32f1xx_hal_gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h
+bo_standfirmware\stm32f1xx_hal_gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 bo_standfirmware\stm32f1xx_hal_gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd.h
 bo_standfirmware\stm32f1xx_hal_gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_ll_usb.h
 bo_standfirmware\stm32f1xx_hal_gpio.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pcd_ex.h
